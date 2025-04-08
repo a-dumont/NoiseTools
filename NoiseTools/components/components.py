@@ -1,6 +1,7 @@
 import numpy as np
 import scipy.constants as C
 from NoiseTools import fitFunctions as ff
+from NoiseTools import rf
 
 class Resistor(object):
     """
@@ -39,6 +40,63 @@ class Resistor(object):
         f,temperature T for a resistor of value R.
         """
         return ff.currentNoiseResistor(f,T,R)
+
+class Capacitor(object):
+    """
+    Class containing static methods that are
+    useful for dealing with capacitors.
+    """
+    def __init__(self):
+        return
+
+    @staticmethod
+    def Z(f,c):
+        return 0.0-1.0j/(2*np.pi*f*c)
+
+    @staticmethod
+    def VI(I,f,c):
+        """
+        Computes V(I) for a given frequency f
+        and capacity c.
+        """
+        return Capacitor.Z(f,c)*I
+
+    @staticmethod
+    def IV(V,R):
+        """
+        Computes I(V) for a given frequency f
+        and capacity c.
+        """
+        return 1.0*V/Capacitor.Z(f,c)
+
+class Inductor(object):
+    """
+    Class containing static methods that are
+    useful for dealing with inductors.
+    """
+    def __init__(self):
+        return
+
+    @staticmethod
+    def Z(f,L):
+        return 0.0+1.0j*2*np.pi*f*L
+
+    @staticmethod
+    def VI(I,f,L):
+        """
+        Computes V(I) for a given frequency f
+        and inductance L.
+        """
+        return Inductor.Z(f,L)*I
+
+    @staticmethod
+    def IV(V,R):
+        """
+        Computes I(V) for a given frequency f
+        and inductance L.
+        """
+        return 1.0*V/Inductor.L(f,L)
+
 
 class TunnelJunction(object):
     """
