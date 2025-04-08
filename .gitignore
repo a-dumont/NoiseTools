@@ -12,6 +12,8 @@ build/
 build_msvc/
 dist/
 *.egg-info
+__pycache__/*
+*/__pycache__/*
 
 
 CMakeLists.txt.user
