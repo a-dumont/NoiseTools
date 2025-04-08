@@ -35,10 +35,10 @@ def voltageNoiseTunnelJunction(V,f,T,R):
     for the given parameters.
     """
     # Positive eV
-    Sf = 2*C.k*T*R*xcoth((C.h*f+C.e*V)/2/C.k/T)
+    Sf = 4*C.k*T*R*xcoth((C.h*f+C.e*V)/2/C.k/T)
 
     # Negative eV
-    Sff = 2*C.k*T*R*xcoth((C.h*f-C.e*V)/2/C.k/T)
+    Sff = 4*C.k*T*R*xcoth((C.h*f-C.e*V)/2/C.k/T)
 
     # Return symmetrized noise
     return 0.5*(Sf+Sff)
@@ -52,10 +52,10 @@ def currentNoiseTunnelJunction(V,f,T,R):
     for the given parameters.
     """
     # Positive eV
-    Sf = 2*C.k*T/R*xcoth((C.h*f+C.e*V)/2/C.k/T)
+    Sf = 4*C.k*T/R*xcoth((C.h*f+C.e*V)/2/C.k/T)
 
     # Negative eV
-    Sff = 2*C.k*T/R*xcoth((C.h*f-C.e*V)/2/C.k/T)
+    Sff = 4*C.k*T/R*xcoth((C.h*f-C.e*V)/2/C.k/T)
 
     # Return symmetrized noise
     return 0.5*(Sf+Sff)

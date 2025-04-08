@@ -3,6 +3,8 @@
 *.so
 *.d
 *.pyc
+*/*.pyc
+*/*/*.pyc
 *.dll
 *.a
 *.dll.a
