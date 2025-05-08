@@ -30,3 +30,9 @@ def noiseFigure2NoisePower(NF,T=290):
 
 def noiseFigure2Temperature(NF,T=290):
     return (10**(1.0*NF/10)-1)*T
+
+def temperature2excessNoiseRatio(T,T0=290.0):
+    return 10*np.log10(T/T0-1)
+
+def temperature2NoiseFigure(T,T0=290.0):
+    return 10*np.log10(1+T/T0)
